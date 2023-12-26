@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Container from '@mui/material/Container';
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
@@ -15,6 +15,7 @@ import useStyles from './styles';
 const App = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
+    const [ currentId, setCurrentId ] = useState(null);
 
     useEffect(() => {
         dispatch(getPosts());
@@ -28,12 +29,12 @@ const App = () => {
             </AppBar>
             <Grow in>
                 <Container>
-                    <Grid container justifyContent="space-between" alignItems="stretch" spacing={3}>
+                    <Grid container className={classes.mainContainer} justifyContent="space-between" alignItems="stretch" spacing={3}>
                         <Grid item xs={12} sm={7}>
-                            <Posts />
+                            <Posts setCurrentId={setCurrentId} />
                         </Grid>
                         <Grid item xs={12} sm={4}>
-                            <Form />
+                            <Form currentId={currentId} setCurrentId={setCurrentId} />
                         </Grid>
                     </Grid>
                 </Container>
