@@ -8,23 +8,36 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Icon from './icon';
 import Input from './Input';
 import useStyles from './styles';
+import { signin, signup } from '../../actions/auth';
 
 const Auth = () => {
     const classes = useStyles();
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
+    const [FormData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        confirmPassword: '',
+    })
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const handleShowPassword = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
     };
-    const handleSubmit = () => {
-        
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if(isSignup) {
+            dispatch(signup(FormData, navigate));
+        } else {
+            dispatch(signin(FormData, navigate));
+        }
     };
 
-    const handleChange = () => {
-
+    const handleChange = (e) => {
+        setFormData({ ...FormData, [e.target.name]: e.target.value });
     };
 
     const switchMode = () => {

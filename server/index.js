@@ -3,6 +3,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import postsRoutes from "./route/posts.js";
+import userRoutes from "./route/users.js";
 import dotenv from "dotenv";
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use("/posts", postsRoutes);
+app.use("/user", userRoutes);
 
 const PORT = process.env.PORT || 3000;
 
