@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Avatar, Button, Typography, Grid, Container, Paper, TextField } from '@mui/material';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin } from '@react-oauth/google';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Icon from './icon';
 import Input from './Input';
@@ -10,30 +13,46 @@ const Auth = () => {
     const classes = useStyles();
     const [showPassword, setShowPassword] = useState(false);
     const [isSignup, setIsSignup] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleShowPassword = () => {
         setShowPassword((prevShowPassword) => !prevShowPassword);
-    }
+    };
     const handleSubmit = () => {
         
-    }
+    };
 
     const handleChange = () => {
 
-    }
+    };
 
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
         handleShowPassword(false);
-    }
+    };
 
     const googleSuccess = async (res) => {
-        
-    }
+        console.log("Google Sign In was successful!");
+        const credential = res?.credential;
+        try {
+            const decodedCredential = jwtDecode(credential);
+            const result = {
+                name: decodedCredential.name,
+                email: decodedCredential.email,
+                picture: decodedCredential.picture
+            }
+            dispatch({ type: 'AUTH', data: { result, credential } });
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-    const googleError = () => {
-        
-    }
+    const googleError = (error) => {
+        console.log('Google Sign In was unsuccessful. Try again later');
+        console.log(error);
+    };
 
     return (
         <Container component="main" maxWidth="xs">
@@ -60,7 +79,6 @@ const Auth = () => {
                         </Grid>
                         <Grid item xs={12}>
                             <GoogleLogin
-                                clientId="GOOGLE ID"
                                 render={(renderProps) => (
                                     <Button className={classes.googleButton} color="primary" fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant="contained">
                                         Google Sign In
@@ -68,7 +86,7 @@ const Auth = () => {
                                 )}
                                 onSuccess={googleSuccess}
                                 onFailure={googleError}
-                                cookiePolicy="single_host_origin"
+                                cookiePolicy={"single_host_origin"}
                             />
                         </Grid>
                         <Grid container justifyContent="flex-end">
