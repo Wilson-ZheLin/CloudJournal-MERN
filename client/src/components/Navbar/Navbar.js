@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@mui/material';
+import { jwtDecode } from 'jwt-decode';
+import * as actionType from '../../constants/actionTypes';
 import useStyles from "./styles";
 import memories from '../../images/memories.png';
 
@@ -16,18 +18,21 @@ const Navbar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
-    
-    useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem('profile')));
-    }, [location]);
-
-    console.log(user);
 
     const logout = () => {
-        dispatch({ type: 'LOGOUT' });
+        dispatch({ type: actionType.LOGOUT });
+        navigate('/auth');
         setUser(null);
-        navigate('/');
     };
+
+    useEffect(() => {
+        const token = user?.token;
+        if (token) {
+            const decodedToken = jwtDecode(token);
+            if (decodedToken.exp * 1000 < new Date().getTime()) logout();
+        }
+        setUser(JSON.parse(localStorage.getItem('profile')));
+    }, [location]);
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">

@@ -12,11 +12,11 @@ import useStyles from './styles';
 const Home = () => {
     const classes = useStyles();
     const dispatch = useDispatch();
-    const [ currentId, setCurrentId ] = useState(null);
+    const [ currentId, setCurrentId ] = useState(0);
 
     useEffect(() => {
         dispatch(getPosts());
-    }, [dispatch]);
+    }, [currentId, dispatch]);
 
     return (
         <Grow in>
