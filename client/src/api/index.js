@@ -10,6 +10,7 @@ API.interceptors.request.use((req) => {
 });
 
 export const fetchPosts = async () => await API.get('/posts');
+export const fetchPostBySearch = async (searchQuery) => await API.get(`/posts/search?searchQuery=${searchQuery.search || 'none'}&tags=${searchQuery.tags}`);
 export const createPost = async (newPost) => await API.post('/posts', newPost);
 export const updatePost = async (id, updatedPost) => await API.patch(`/posts/${id}`, updatedPost);
 export const deletePost = async (id) => await API.delete(`/posts/${id}`);
