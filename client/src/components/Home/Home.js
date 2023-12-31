@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid';
 import Grow from '@mui/material/Grow';
 import Paper from '@mui/material/Paper';
 import AppBar from '@mui/material/AppBar';
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Typography } from "@mui/material";
 import Container from '@mui/material/Container';
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -48,21 +48,22 @@ const Home = () => {
         <Grow in>
             <Container maxWidth="xl">
                 <Grid container className={classes.gridContainer} justifyContent="space-between" alignItems="stretch" spacing={3}>
-                    <Grid item xs={12} sm={6} md={9}>
+                    <Grid item xs={12} sm={7} md={8} lg={9}>
                         <Posts setCurrentId={setCurrentId} />
                     </Grid>
-                    <Grid item xs={12} sm={6} md={3}>
-                        <AppBar className={classes.appBarSearch} position="static" color="inherit">
-                            <TextField name="search" variant="outlined" label="Search Posts" fullWidth value={search} onChange={(e) => {setSearch(e.target.value)}} onKeyDown={handleKeyPress}/>
-                            <TextField name="tags" variant="outlined" label="Tags" fullWidth value={tags} onChange={(e) => {setTags(e.target.value.split(','))}} onKeyDown={handleKeyPress}/>
-                            <Button onClick={searchPost} className={classes.searchButton} color="primary" variant="contained">Search</Button>
+                    <Grid item xs={12} sm={5} md={4} lg={3}>
+                        <AppBar className={classes.component} sx={{ mt: 0 }} position="static" color="inherit">
+                            <Typography variant="h6" className={classes.heading}> Search </Typography>
+                            <TextField name="search" variant="outlined" sx={{ mb: 1 }} label="Search Posts" fullWidth size="small" value={search} onChange={(e) => {setSearch(e.target.value)}} onKeyDown={handleKeyPress}/>
+                            <TextField name="tags" variant="outlined" sx={{ mb: 1 }} label="Tags" fullWidth size="small" value={tags} onChange={(e) => {setTags(e.target.value.split(','))}} onKeyDown={handleKeyPress}/>
+                            <Button onClick={searchPost} className={classes.searchButton} color="primary" variant="contained" size="medium">Search</Button>
                         </AppBar>
-                        <Form currentId={currentId} setCurrentId={setCurrentId} />
                         {(!searchQuery && !tags.length) && (
-                            <Paper className={classes.pagination} elevation={6}>
+                            <Paper className={classes.component} elevation={6}>
                                 <Pagination page={page}/>
                             </Paper>
                         )}
+                        <Form currentId={currentId} setCurrentId={setCurrentId} />
                     </Grid>
                 </Grid>
             </Container>

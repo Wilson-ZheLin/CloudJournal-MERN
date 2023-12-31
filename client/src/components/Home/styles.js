@@ -4,16 +4,17 @@ import { useTheme } from "@mui/material/styles";
 const useStyles = () => {
     const theme = useTheme();
     return makeStyles({
-        appBarSearch: {
-            borderRadius: 4,
-            marginBottom: '1rem',
-            display: 'flex',
-            padding: '16px',
-        },
-        pagination: {
+        component: {
             borderRadius: 4,
             marginTop: '1rem',
+            display: 'flex',
+            justifyContent: 'center',
+            marginBottom: '1rem',
             padding: '16px',
+        },
+        heading: {
+            width: '100%',
+            textAlign: 'center',
         },
         gridContainer: {
             [theme.breakpoints.down('xs')]: {

@@ -4,11 +4,6 @@ import { useTheme } from "@mui/material/styles";
 const useStyles = () => {
     const theme = useTheme();
     return makeStyles({
-        root: {
-            '& .MuiTextField-root': {
-              margin: theme.spacing(1),
-            },
-        },
         paper: {
             padding: theme.spacing(2),
         },

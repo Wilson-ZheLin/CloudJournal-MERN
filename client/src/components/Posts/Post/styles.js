@@ -29,8 +29,8 @@ export default makeStyles({
   },
   overlay2: {
     position: 'absolute',
-    top: '20px',
-    right: '20px',
+    top: '15px',
+    right: '2px',
     color: 'white',
   },
   grid: {
