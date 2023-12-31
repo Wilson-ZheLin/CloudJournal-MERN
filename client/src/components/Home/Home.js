@@ -8,7 +8,6 @@ import { TextField, Button } from "@mui/material";
 import Container from '@mui/material/Container';
 import { useNavigate, useLocation } from "react-router-dom";
 
-import { getPosts } from '../../actions/posts';
 import { getPostBySearch } from '../../actions/posts';
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';

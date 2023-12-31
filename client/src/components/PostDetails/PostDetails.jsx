@@ -7,6 +7,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import useStyles from './styles';
 import { getPost, getPostBySearch } from '../../actions/posts';
+import CommentSection from './CommentSection';
 
 const Post = () => {
     const { post, posts, isLoading } = useSelector((state) => state.posts);
@@ -52,6 +53,9 @@ const Post = () => {
             <Typography gutterBottom variant="body1" component="p">{post.message}</Typography>
             <Typography variant="h6">Created by: {post.name}</Typography>
             <Typography variant="body1">{moment(post.createdAt).fromNow()}</Typography>
+          </div>
+          <div className={classes.section}>
+            <CommentSection post={post} />
           </div>
         </div>
         {!!recommendedPosts.length && (
