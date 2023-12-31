@@ -10,7 +10,7 @@ import { Button } from '@mui/material';
 import { jwtDecode } from 'jwt-decode';
 import * as actionType from '../../constants/actionTypes';
 import useStyles from "./styles";
-import memories from '../../images/memories.png';
+import logo from '../../images/DJI.png';
 
 const Navbar = () => {
     const classes = useStyles();
@@ -36,10 +36,9 @@ const Navbar = () => {
 
     return (
         <AppBar className={classes.appBar} position="static" color="inherit">
-            <div className={classes.brandContainer}>
-                <Typography component={Link} to="/" className={classes.heading} variant="h2" align="center">Memories</Typography>
-                <img className={classes.image} src={memories} alt="memories" height="60"/>
-            </div>
+            <Link to='/' className={classes.brandContainer} >
+                <img className={classes.image} src={logo} alt="memories" height="60"/>
+            </Link>
             <Toolbar className={classes.toolbar}>
                 {user && user.result ? (
                     <div className={classes.profile}>
