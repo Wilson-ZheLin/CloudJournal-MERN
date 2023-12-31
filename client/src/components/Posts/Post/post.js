@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardActions, CardContent, CardMedia, Button, Typography, CardActionArea } from '@mui/material';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbUpAltOutlined from '@mui/icons-material/ThumbUpAltOutlined';
@@ -16,13 +16,28 @@ const Post = ({ post, setCurrentId }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('profile'));
+    const [likes, setLikes] = useState(post?.likes);
+
+    const userId = user?.result?.googleId || user?.result?._id;
+    const hasLikedPost = likes.find((like) => like === userId);
+
+    const handleLike = () => {
+        dispatch(likePost(post._id));
+
+        if (hasLikedPost) {
+          setLikes(likes.filter((id) => id !== userId));
+        } else {
+          setLikes([...likes, userId]);
+        }
+    };
+
     const Likes = () => {
-      if (post?.likes?.length > 0) {
-        return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
+      if (likes.length > 0) {
+        return likes.find((like) => like === userId)
           ? (
-            <><ThumbUpAltIcon fontSize="small" />&nbsp;{post.likes.length > 2 ? `You and ${post.likes.length - 1} others` : `${post.likes.length} like${post.likes.length > 1 ? 's' : ''}` }</>
+            <><ThumbUpAltIcon fontSize="small" />&nbsp;{likes.length > 2 ? `You and ${likes.length - 1} others` : `${likes.length} like${likes.length > 1 ? 's' : ''}` }</>
           ) : (
-            <><ThumbUpAltOutlined fontSize="small" />&nbsp;{post.likes.length} {post.likes.length === 1 ? 'Like' : 'Likes'}</>
+            <><ThumbUpAltOutlined fontSize="small" />&nbsp;{likes.length} {likes.length === 1 ? 'Like' : 'Likes'}</>
           );
       }
       return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
@@ -30,7 +45,7 @@ const Post = ({ post, setCurrentId }) => {
 
     const openPost = () => {
       navigate(`/posts/${post._id}`);
-    }
+    };
 
     return (
         <Card className={classes.card} raised elevation={4}>
@@ -54,9 +69,9 @@ const Post = ({ post, setCurrentId }) => {
             </CardContent>
           </CardActionArea>
           <CardActions className={classes.cardActions}>
-            <Button size="small" color="primary" disabled={!user?.result} onClick={() => dispatch(likePost(post._id))}><Likes /></Button>
+            <Button size="small" color="primary" disabled={!user?.result} onClick={handleLike}><Likes /></Button>
             {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) && (
-              <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
+              <Button size="small" color="inherit" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small" /> Delete</Button>
             )}
           </CardActions>
         </Card>
