@@ -32,7 +32,7 @@ const Post = () => {
   
     if (isLoading) {
       return (
-        <Paper elevation={6} className={classes.loadingPaper}>
+        <Paper elevation={4} className={classes.loadingPaper}>
           <CircularProgress size="7em" />
         </Paper>
       );
@@ -41,7 +41,7 @@ const Post = () => {
     const recommendedPosts = posts.filter(({ _id }) => _id !== post._id);
   
     return (
-      <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={6}>
+      <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={4}>
         <div className={classes.card}>
           <div className={classes.section}>
             <Typography variant="h3" component="h2">{post.title}</Typography>

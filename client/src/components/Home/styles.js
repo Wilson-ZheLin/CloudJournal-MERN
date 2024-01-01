@@ -20,10 +20,7 @@ const useStyles = () => {
             [theme.breakpoints.down('xs')]: {
                 flexDirection: 'column-reverse',
             },
-        },
-        chip: {
-            margin: '10px 0',
-        },
+        }
     })();
 };
 

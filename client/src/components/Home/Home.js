@@ -59,7 +59,7 @@ const Home = () => {
                             <Button onClick={searchPost} className={classes.searchButton} color="primary" variant="contained" size="small">Search</Button>
                         </AppBar>
                         {(!searchQuery && !tags.length) && (
-                            <Paper className={classes.component} elevation={6}>
+                            <Paper className={classes.component} elevation={4}>
                                 <Pagination page={page}/>
                             </Paper>
                         )}
