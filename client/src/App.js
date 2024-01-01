@@ -9,9 +9,8 @@ import PostDetails from './components/PostDetails/PostDetails';
 
 const App = () => {
     const user = JSON.parse(localStorage.getItem('profile'));
-
     return (
-      <GoogleOAuthProvider clientId="">
+      <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}>
         <BrowserRouter>
           <Container maxWidth="xl">
             <Navbar />
