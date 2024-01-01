@@ -3,10 +3,15 @@ import axios from "axios";
 const API = axios.create({ baseURL: "http://localhost:3000" });
 
 API.interceptors.request.use((req) => {
-   if(localStorage.getItem('profile')) {
-       req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`;
-   }
-   return req;
+    const profile = localStorage.getItem('profile');
+    if (profile) {
+        const parsedProfile = JSON.parse(profile);
+        const token = parsedProfile.token || parsedProfile.credential;
+        if (token) {
+            req.headers.Authorization = `Bearer ${token}`;
+        }
+    }
+    return req;
 });
 
 export const fetchPost = async (id) => await API.get(`/posts/${id}`);
