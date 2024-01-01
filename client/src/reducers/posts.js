@@ -11,7 +11,6 @@ const reducers = (state = { isLoading: true, posts: [] }, action) => {
         case FETCH_BY_SEARCH:
             return { ...state, posts: action.payload.data };
         case FETCH_POST:
-            console.log(action.payload)
             return { ...state, post: action.payload };
         case FETCH_ALL:
             return { ...state, posts: action.payload.data, currentPage: action.payload.currentPage, numberOfPages: action.payload.numberOfPages };
