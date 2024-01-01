@@ -23,7 +23,7 @@ const CommentSection = ({ post }) => {
     return (
         <div>
             <div className={classes.commentsOuterContainer}>
-                <div className={classes.commentsInnerContainer} style={{ width: '30%' }}>
+                <div className={classes.commentsInnerContainer} style={{ width: '50%' }}>
                     <Typography gutterBottom variant="h6">Comments</Typography>
                         {comments?.map((c, i) => (
                             <Typography key={i} gutterBottom variant="subtitle1">
@@ -34,7 +34,7 @@ const CommentSection = ({ post }) => {
                     <div ref={commentsRef} />
                 </div>
                 {user?.result?.name && (
-                    <div style={{ width: '70%' }}>
+                    <div style={{ width: '50%' }}>
                         <Typography gutterBottom variant="h6">Write a comment</Typography>
                         <TextField fullWidth rows={4} variant="outlined" label="Comment" multiline value={comment} onChange={(e) => setComment(e.target.value)} />
                         <br />

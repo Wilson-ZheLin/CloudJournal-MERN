@@ -8,11 +8,11 @@ const useStyles = () => {
           borderRadius: '20px',
           objectFit: 'cover',
           width: '100%',
-          maxHeight: '500px', // Reduced max height for better proportion
+          maxHeight: '500px',
       },
       card: {
           display: 'flex',
-          flexDirection: 'column', // Changed to column for a more streamlined look
+          flexDirection: 'row',
           width: '100%',
           [theme.breakpoints.down('sm')]: {
               flexDirection: 'column',
@@ -22,10 +22,11 @@ const useStyles = () => {
           borderRadius: '20px',
           margin: '10px',
           flex: 1,
-          padding: '15px', // Added padding for better spacing
+          padding: '15px',
       },
       imageSection: {
-          marginTop: '20px', // Added top margin for separation
+          marginTop: '20px',
+          flex: 1,
           [theme.breakpoints.down('sm')]: {
               marginTop: '10px',
           },

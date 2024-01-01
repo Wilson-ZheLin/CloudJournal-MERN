@@ -9,13 +9,16 @@ const useStyles = () => {
             borderRadius: 15,
             margin: '30px 0',
             display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
+            flexDirection: 'row !important',
+            justifyContent: 'center',
             alignItems: 'center',
-            padding: '10px 50px',
+            padding: '5px 20px 5px 15px',
             [theme.breakpoints.down('sm')]: {
               flexDirection: 'column',
             },
+          },
+          leftContent: {
+            flex: 1,
           },
           heading: {
             color: theme.palette.primary.main,
@@ -26,11 +29,13 @@ const useStyles = () => {
           image: {
             marginLeft: '10px',
             marginTop: '5px',
+            cursor: 'pointer',
           },
           toolbar: {
             display: 'flex',
             justifyContent: 'flex-end',
-            width: 'auto',
+            flex: 1,
+            marginLeft: 'auto',
             [theme.breakpoints.down('sm')]: {
               width: 'auto',
             },
@@ -47,7 +52,7 @@ const useStyles = () => {
             },
           },
           logout: {
-            marginLeft: '20px',
+            marginLeft: '20px !important',
           },
           userName: {
             display: 'flex',
@@ -58,11 +63,10 @@ const useStyles = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'start',
-            flex: 1
+            flex: 1,
           },
-          purple: {
-            color: theme.palette.getContrastText(deepPurple[500]),
-            backgroundColor: deepPurple[500],
+          protrait: {
+            marginRight: '10px',
           }
     })();
 };

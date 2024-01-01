@@ -6,6 +6,10 @@ const useStyles = () => {
     return makeStyles({
         paper: {
             padding: theme.spacing(2),
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
         },
         form: {
             display: 'flex',
@@ -19,6 +23,9 @@ const useStyles = () => {
         buttonSubmit: {
             marginBottom: 20,
         },
+        signin: {
+            width: '90px',
+        }
     })();
 };
 
