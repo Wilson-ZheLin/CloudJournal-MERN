@@ -1,16 +1,16 @@
 import React from "react";
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, CardActionArea, Icon } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, CardActionArea } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Avatar from '@mui/material/Avatar';
 import CardHeader from '@mui/material/CardHeader';
-import moment from 'moment';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
-import { red, green, blue, yellow, purple } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import IconButton from '@mui/material/IconButton';
+import { red, green, blue, yellow, purple } from '@mui/material/colors';
+
 import useStyles from "./styles";
 import { deletePost, likePost } from '../../../actions/posts';
 
@@ -22,8 +22,7 @@ const Post = ({ post, setCurrentId }) => {
 
     const Likes = () => {
       const userId = user?.result?._id;
-      const userEmail = user?.result?.email;
-      const isLiked = post.likes.includes(userId) || post.likes.includes(userEmail);
+      const isLiked = post.likes.includes(userId);
     
       return (
         <FavoriteIcon fontSize="small" sx={{ color: isLiked ? '#D32F2F' : 'inherit' }} />
@@ -43,7 +42,7 @@ const Post = ({ post, setCurrentId }) => {
               className={classes.cardHeader}
               avatar={
                 <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                  {post.creator?.charAt(0)?.toUpperCase()}
+                  {post.name?.charAt(0)?.toUpperCase()}
                 </Avatar>
               }
               action={

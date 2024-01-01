@@ -46,14 +46,14 @@ const Auth = () => {
     };
 
     const googleSuccess = async (res) => {
-        console.log("Google Sign In was successful!");
         const credential = res?.credential;
         try {
             const decodedCredential = jwtDecode(credential);
             const result = {
                 name: decodedCredential.name,
                 email: decodedCredential.email,
-                picture: decodedCredential.picture
+                picture: decodedCredential.picture,
+                _id: decodedCredential.sub
             }
             dispatch({ type: 'AUTH', data: { result, credential } });
             navigate('/');
@@ -63,7 +63,6 @@ const Auth = () => {
     };
 
     const googleError = (error) => {
-        console.log('Google Sign In was unsuccessful. Try again later');
         console.log(error);
     };
 
