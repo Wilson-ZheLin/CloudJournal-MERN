@@ -4,6 +4,7 @@ import { GoogleLogin } from '@react-oauth/google';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
+import FileBase from 'react-file-base64';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Icon from './icon';
 import Input from './Input';
@@ -20,6 +21,7 @@ const Auth = () => {
         email: '',
         password: '',
         confirmPassword: '',
+        picture: '',
     })
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -84,6 +86,7 @@ const Auth = () => {
                         <Input name="email" label="Email Address" handleChange={handleChange} type="email" />
                         <Input name="password" label="Password" handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
                         { isSignup && <Input name="confirmPassword" label="Repeat Password" handleChange={handleChange} type="password" /> }
+                        { isSignup && <div className={classes.fileInput}><FileBase type="file" multiple={false} onDone={({ base64 }) => setFormData({ ...FormData, picture: base64 })} /></div>}
                         <Grid item xs={12}>
                             <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}>
                             { isSignup ? 'Sign Up' : 'Sign In' }

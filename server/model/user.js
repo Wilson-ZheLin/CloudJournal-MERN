@@ -13,20 +13,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    protrait: {
+    picture: {
         type: String,
         required: false
     },
-    color: {
-        type: Number,
-        required: true
-    }
+    color: Number,
 });
 
 userSchema.pre('save', function(next) {
-    if (this.isNew) {
-        this.color = Math.floor(Math.random() * 5);
-    }
+    if (this.isNew) this.color = Math.floor(Math.random() * 5);
     next();
 });
 

@@ -22,14 +22,19 @@ const useStyles = () => {
         },
         form: {
             width: '100%', 
-            marginTop: theme.spacing(3),
+            marginTop: theme.spacing(2),
         },
         submit: {
-            margin: theme.spacing(3, 0, 2),
+            margin: theme.spacing(2, 0, 2),
         },
         googleButton: {
             marginBottom: theme.spacing(2),
-        }
+        },
+        fileInput: {
+            width: '97%',
+            margin: '15px 0 0 18px',
+            justifyContent: 'center',
+        },
     })();
 };
 
