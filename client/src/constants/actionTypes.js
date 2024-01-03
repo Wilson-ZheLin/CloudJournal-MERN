@@ -1,3 +1,7 @@
+import { red, green, blue, yellow, purple, grey } from '@mui/material/colors';
+
+export const COLORS = [red[500], blue[500], green[500], yellow[500], purple[500], grey[500]];
+
 export const CREATE = 'CREATE';
 export const UPDATE = 'UPDATE';
 export const DELETE = 'DELETE';

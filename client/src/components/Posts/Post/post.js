@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
@@ -9,16 +9,30 @@ import CardHeader from '@mui/material/CardHeader';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import IconButton from '@mui/material/IconButton';
-import { red, green, blue, yellow, purple } from '@mui/material/colors';
 
 import useStyles from "./styles";
 import { deletePost, likePost } from '../../../actions/posts';
+import { getUser } from '../../../actions/user';
+import { COLORS } from "../../../constants/actionTypes";
 
 const Post = ({ post, setCurrentId }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('profile'));
+    const [creator, setCreator] = useState(null);
+  
+    useEffect(() => {
+      const fetchCreator = async () => {
+          try {
+            const data = await getUser(post.creator)(dispatch);
+            setCreator(data);
+          } catch (error) {
+            console.error("Error fetching creator data:", error);
+          }
+      };
+      fetchCreator();
+    }, [post.creator, dispatch]);
 
     const Likes = () => {
       const userId = user?.result?._id;
@@ -33,17 +47,17 @@ const Post = ({ post, setCurrentId }) => {
       navigate(`/posts/${post._id}`);
     }
 
-    const colors = [red[500], blue[500], green[500], yellow[500], purple[500]];
-    const randomColor = colors[Math.floor(Math.random() * colors.length)];
-
     return (
         <Card className={classes.card} sx ={{ borderRadius: '8px' }} raised elevation={4}>
             <CardHeader 
               className={classes.cardHeader}
               avatar={
-                <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                  {post.name?.charAt(0)?.toUpperCase()}
-                </Avatar>
+                creator && creator.picture ? 
+                  <Avatar src={creator.picture} alt={creator.name} aria-label="recipe" /> 
+                  :
+                  <Avatar sx={{ bgcolor: COLORS[ creator ? creator.color : 5 ]}} aria-label="recipe">
+                    {post.name?.charAt(0)?.toUpperCase()}
+                  </Avatar>
               }
               action={
                 (user?.result?.email === post?.creator || user?.result?._id === post?.creator) ?
