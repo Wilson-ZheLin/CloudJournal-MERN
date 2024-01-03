@@ -25,3 +25,4 @@ export const comment = async (value, id) => await API.post(`/posts/${id}/comment
 
 export const signIn = async (formData) => await API.post('/user/signin', formData);
 export const signUp = async (formData) => await API.post('/user/signup', formData);
+export const getUser = async (id) => await API.get(`/user/${id}`);
