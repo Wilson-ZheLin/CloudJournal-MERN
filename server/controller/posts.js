@@ -1,5 +1,11 @@
 import PostMessage from "../model/postMessage.js";
 import mongoose from "mongoose";
+import { Mint } from "mint-filter";
+
+const mint = new Mint(["fucking"]);
+// let veryfyRes1 = mint.verify("Amazing");
+// let veryfyRes2 = mint.verify("fucking bad");
+// console.log(veryfyRes1, veryfyRes2);
 
 export const getPosts = async (req, res) => {
     const { page } = req.query;
@@ -37,6 +43,8 @@ export const getPostsBySearch = async (req, res) => {
 
 export const createPost = async (req, res) => {
     const post = req.body;
+    post["title"] = mint.filter(post["title"], "*").text;
+    post["message"] = mint.filter(post["message"], "*").text;
     const newPost = new PostMessage({ ...post, creator: req.userId, createdAt: new Date().toISOString() });
     try {
         await newPost.save();
