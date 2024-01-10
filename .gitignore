@@ -1,7 +1,6 @@
 # Dependencies
 server/node_modules/
 client/node_modules/
-client/public/
 /package-lock.json
 /yarn.lock
 
