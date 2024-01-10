@@ -56,7 +56,7 @@ const Home = () => {
                             <Typography variant="h6" className={classes.heading}> Search </Typography>
                             <TextField name="search" variant="outlined" sx={{ mb: 1 }} label="Search Posts" fullWidth size="small" value={search} onChange={(e) => {setSearch(e.target.value)}} onKeyDown={handleKeyPress}/>
                             <TextField name="tags" variant="outlined" sx={{ mb: 1 }} label="Tags" fullWidth size="small" value={tags} onChange={(e) => {setTags(e.target.value.split(','))}} onKeyDown={handleKeyPress}/>
-                            <Button onClick={searchPost} className={classes.searchButton} color="primary" variant="contained" size="small">Search</Button>
+                            <Button onClick={searchPost} className={classes.searchButton} color="primary" variant="outlined" size="small">Search</Button>
                         </AppBar>
                         {(!searchQuery && !tags.length) && (
                             <Paper className={classes.component} elevation={4}>

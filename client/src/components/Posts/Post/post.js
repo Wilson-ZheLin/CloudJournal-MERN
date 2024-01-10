@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, CardActionArea } from '@mui/material';
+import { Card, CardActions, CardContent, CardMedia, Typography, CardActionArea } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Avatar from '@mui/material/Avatar';
 import CardHeader from '@mui/material/CardHeader';
@@ -72,12 +72,12 @@ const Post = ({ post, setCurrentId }) => {
             <CardActionArea onClick={openPost}>
               <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'}/>
               <CardContent>
-                <Typography gutterBottom variant="h6" component="h2">{post.title}</Typography>
-                <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
+                <Typography gutterBottom variant="subtitle1" component="h2">{post.title}</Typography>
+                <Typography variant="body2" color="textSecondary" component="p" className={classes.message}>{post.message}</Typography>
               </CardContent>
 
               <div className={classes.details}>
-                <Typography variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
+                <Typography variant="overline" color="textSecondary" component="h2" className={classes.tags}>{post.tags.map((tag) => `#${tag} `)}</Typography>
               </div>
             </CardActionArea>
             
