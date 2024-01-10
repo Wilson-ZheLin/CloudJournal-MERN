@@ -10,6 +10,8 @@ import rateLimit from "express-rate-limit";
 const app = express();
 dotenv.config();
 
+app.set('trust proxy', 1);
+
 const apiLimiter = rateLimit({
    windowsMs: 15 * 60 * 1000,
    max: 100,
