@@ -5,9 +5,8 @@
 
 Features
 --------
-* High-performance aerial photography blogging platform based on **MERN** (MongoDB, Express, React, Node.js)
-* [**Google Account OAuth**](https://console.cloud.google.com/apis) integration alongside conventional user authentication
 * Create and edit personal blogs; comment and like all blogs (one like per user per blog)
+* [**Google Account OAuth**](https://console.cloud.google.com/apis) integration alongside conventional user authentication
 * Incorporation of the **Aho-Corasick Algorithm** for sensitive word filtering
 * **IP rate limiting** for traffic surge and attack protection
 * Optimization of query latency through **pagination** and **database indexing**
