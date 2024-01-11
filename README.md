@@ -25,14 +25,15 @@ Getting Started
 To run the `Cloud Journal`, you'll need:
 * [Node.js v20.8](https://nodejs.org/en) (not necessarily to be the same version)
 * [MongoDB Atlas](https://www.mongodb.com/atlas/database) (or local MongoDB)
-* [Google API Client ID](https://console.cloud.google.com/apis) for Google account authorization. This API is **free**.
+* [Google API Client ID](https://console.cloud.google.com/apis)
+  * Google account authorization. This API is **free**.
 
 ### Installation
-1. Enter the root directory in the terminal and operate the `client` and `server` through two terminals respectively
+1. Enter the root directory in the terminal and operate the `client` and `server` through **two terminals** respectively
 
 2. Create two `.env` files in the `client` and `server` folders respectively and enter your **Port**, **MongoDB Connection URL** and **Google Client ID** following the `.env.example`
 
-3. Install the required packages for the **server** side and run:
+3. Install the required packages for the `server` side and run:
 
 ```
 cd server
@@ -40,7 +41,7 @@ npm i
 npm start
 ```
 
-4. Install the required packages for the **client** side and run:
+4. Install the required packages for the `client` side and run:
 
 ```
 cd client
