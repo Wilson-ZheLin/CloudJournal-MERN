@@ -7,7 +7,7 @@ If you find it intriguing, please give me a star! 🌟
 Features
 --------
 
-![Screenshot 2024-01-11 at 00 17 09](https://github.com/Wilson-ZheLin/CloudJournal-MERN/assets/145169519/378335ee-ede7-44eb-bfe3-5475133203c5)
+![Screenshot 2024-01-11 at 15 24 12](https://github.com/Wilson-ZheLin/CloudJournal-MERN/assets/145169519/db73b96d-2b3b-481b-8e89-8c07fde250b1)
 
 * **Create** and **edit** personal blogs; **comment** and **like** all the blogs (one like per user per blog)
 * [**Google Account OAuth**](https://console.cloud.google.com/apis) integration alongside conventional user authentication
@@ -24,7 +24,7 @@ Architecture
 Demo
 ----
 
-
+https://github.com/Wilson-ZheLin/CloudJournal-MERN/assets/145169519/69b82a8f-c294-41f2-8521-71d963c67377
 
 Getting Started
 ---------------
