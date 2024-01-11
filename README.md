@@ -1,4 +1,4 @@
-# CloudJournal: A MERN-Based Aerial Photography Blogging Platform 
+# Cloud Journal: A MERN-Based Aerial Photography Blogging Platform 
 
 
 
@@ -32,7 +32,7 @@ To run the `Cloud Journal`, you'll need:
 
 2. Create two `.env` files in the `client` and `server` folders respectively and enter your **Port**, **MongoDB Connection URL** and **Google Client ID** following the `.env.example`
 
-3. Install the required packages for **server side** and run:
+3. Install the required packages for the **server** side and run:
 
 ```
 cd server
@@ -40,7 +40,7 @@ npm i
 npm start
 ```
 
-4. Install the required packages for **client side** and run:
+4. Install the required packages for the **client** side and run:
 
 ```
 cd client
