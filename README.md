@@ -36,8 +36,7 @@ To run `Cloud Journal`, you'll need:
     * MongoDB Connection URL
     * Google Client ID
 
-  following the `.env.example` files
-
+   following the `.env.example` files
 3. Install the required packages for the `server` side and run:
 
 ```
