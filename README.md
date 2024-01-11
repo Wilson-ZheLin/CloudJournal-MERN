@@ -6,6 +6,9 @@ If you find it intriguing, please give me a star! 🌟
 
 Features
 --------
+
+![Screenshot 2024-01-11 at 00 10 16](https://github.com/Wilson-ZheLin/CloudJournal-MERN/assets/145169519/4f9f193c-5e99-412c-ba5f-54b3cbcd7f9f)
+
 * **Create** and **edit** personal blogs; **comment** and **like** all the blogs (one like per user per blog)
 * [**Google Account OAuth**](https://console.cloud.google.com/apis) integration alongside conventional user authentication
 * Incorporation of the **Aho-Corasick Algorithm** for sensitive word filtering
