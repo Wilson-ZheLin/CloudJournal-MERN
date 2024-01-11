@@ -11,7 +11,7 @@ Features
 Architecture
 ------------
 
-
+![Screenshot 2024-01-10 at 22 26 49](https://github.com/Wilson-ZheLin/CloudJournal-MERN/assets/145169519/dc175b84-8f91-4481-b5a8-2fed7bb2c103)
 
 Demo
 ----
@@ -22,25 +22,21 @@ Getting Started
 ---------------
 
 ### Prerequisites
-To run `CloudJournal`, you'll need:
-* [Node.js v20.8](https://nodejs.org/en) (not necessarily the same)
-* Configure your [MongoDB Atlas](https://www.mongodb.com/atlas/database) (or local MongoDB) and copy the connection link
+To run the `Cloud Journal`, you'll need:
+* [Node.js v20.8](https://nodejs.org/en) (not necessarily to be the same version)
+* [MongoDB Atlas](https://www.mongodb.com/atlas/database) (or local MongoDB)
 * [Google API Client ID](https://console.cloud.google.com/apis) for Google account authorization. This API is **free**.
 
 ### Installation
 1. Enter the root directory in the terminal and operate the `client` and `server` through two terminals respectively
 
-2. Create two `.env` files in the `client` and `server` folders respectively. Enter your **Port**, **MongoDB Connection URL** and **Google Client ID** following the `.env.example`
+2. Create two `.env` files in the `client` and `server` folders respectively and enter your **Port**, **MongoDB Connection URL** and **Google Client ID** following the `.env.example`
 
 3. Install the required packages for **server side** and run:
 
 ```
 cd server
-```
-```
 npm i
-```
-```
 npm start
 ```
 
@@ -48,11 +44,7 @@ npm start
 
 ```
 cd client
-```
-```
 npm i --legacy-peer-deps
-```
-```
 npm start
 ```
 
