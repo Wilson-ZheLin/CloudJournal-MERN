@@ -9,7 +9,7 @@ Features
 
 ![Screenshot 2024-01-11 at 00 17 09](https://github.com/Wilson-ZheLin/CloudJournal-MERN/assets/145169519/5f0e8daf-83a8-4a10-9ad5-67ec276bf808)
 
-* **Create** and **edit** personal blogs; **comment** and **like** all the blogs (one like per user per blog)
+* **Create** and **edit** personal blogs; **search**, **comment**, and **like** all the blogs (one like per user per blog)
 * [**Google Account OAuth**](https://console.cloud.google.com/apis) integration alongside conventional user authentication
 * Incorporation of the **Aho-Corasick Algorithm** for sensitive word filtering
 * **IP rate limiting** for traffic surge and attack protection
